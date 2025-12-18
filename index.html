@@ -4,119 +4,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vespa Classic - Timeless Elegance</title>
-    <meta name="description"
-        content="Discover the timeless elegance of classic Vespas. A tribute to Italian design and engineering.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@300;400;600&display=swap"
+    <title>Olimpiade Matematika Ceria</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo">Vespa Classic</div>
-        <div class="nav-links">
-            <a href="#hero">Beranda</a>
-            <a href="#history">Sejarah</a>
-            <a href="#gallery">Galeri</a>
-            <a href="#contact">Kontak</a>
-        </div>
-    </nav>
+    <div id="app">
+        <!-- Main Menu -->
+        <section id="main-menu" class="screen active">
+            <div class="bg-overlay"></div>
+            <div class="content">
+                <h1 class="bounce-in">Olimpiade<br>Matematika Ceria!</h1>
+                <p class="subtitle">Belajar Matematika Sambil Bermain</p>
+                <button class="btn-primary pulse" onclick="screenManager.show('game-select')">Mulai
+                    Petualangan!</button>
+            </div>
+            <img src="assets/char-kid.png" alt="Character" class="mascot floating">
+        </section>
 
-    <header id="hero" class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in-up">The Italian Icon</h1>
-            <p class="fade-in-up delay-1">Simbol kebebasan dan gaya yang tak lekang oleh waktu.</p>
-            <a href="#history" class="btn fade-in-up delay-2">Jelajahi Sejarah</a>
-        </div>
-        <div class="hero-image-container fade-in">
-            <img src="assets/vespa_hero_classic_1766029407655.png" alt="Vintage Vespa in Rome" class="hero-img">
-        </div>
-    </header>
+        <!-- Game Selection -->
+        <section id="game-select" class="screen hidden">
+            <div class="header">
+                <button class="btn-back" onclick="screenManager.show('main-menu')">⬅ Kembali</button>
+                <h2>Pilih Perlombaan</h2>
+            </div>
+            <div class="card-container">
+                <div class="card" onclick="gameManager.selectGame('tarik-tambang')">
+                    <div class="card-icon" style="background-color: #FF6B6B;">🧗</div>
+                    <h3>Tarik Tambang</h3>
+                    <p>Adu kekuatan dengan menjawab soal!</p>
+                </div>
+                <div class="card" onclick="gameManager.selectGame('panjat-pinang')">
+                    <div class="card-icon" style="background-color: #4D96FF;">🌴</div>
+                    <h3>Panjat Pinang</h3>
+                    <p>Panjat setinggi mungkin!</p>
+                </div>
+                <div class="card" onclick="gameManager.selectGame('lari-karung')">
+                    <div class="card-icon" style="background-color: #6BCB77;">🏃</div>
+                    <h3>Lari Karung</h3>
+                    <p>Lari secepat kilat!</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="history" class="section history">
-        <div class="container">
-            <div class="section-header">
-                <h2>Warisan Sejarah</h2>
-                <p>Lebih dari sekadar skuter, Vespa adalah gaya hidup.</p>
+        <!-- Topic Selection -->
+        <section id="topic-select" class="screen hidden">
+            <div class="header">
+                <button class="btn-back" onclick="screenManager.show('game-select')">⬅ Kembali</button>
+                <h2>Pilih Operasi Matematika</h2>
             </div>
-            <div class="history-grid">
-                <div class="history-item slide-in-left">
-                    <h3>1946</h3>
-                    <p>Lahirnya legenda. Vespa pertama diproduksi di Pontedera, Italia, mengubah cara dunia bergerak
-                        selamanya.</p>
+            <div class="card-container">
+                <div class="card" onclick="gameManager.selectTopic('all')">
+                    <div class="card-icon" style="background-color: #9b59b6;">🎲</div>
+                    <h3>Campuran</h3>
+                    <p>Semua jenis soal</p>
                 </div>
-                <div class="history-item slide-in-up">
-                    <h3>Desain</h3>
-                    <p>Bodi baja monocoque yang revolusioner menjadikannya ikon desain industri yang diakui secara
-                        global.</p>
+                <div class="card" onclick="gameManager.selectTopic('+')">
+                    <div class="card-icon" style="background-color: #e67e22;">+</div>
+                    <h3>Penjumlahan</h3>
+                    <p>Belajar tambah-tambahan</p>
                 </div>
-                <div class="history-item slide-in-right">
-                    <h3>Budaya</h3>
-                    <p>Dari film "Roman Holiday" hingga jalanan modern, Vespa selalu menjadi simbol jiwa muda dan
-                        romansa.</p>
+                <div class="card" onclick="gameManager.selectTopic('-')">
+                    <div class="card-icon" style="background-color: #e74c3c;">-</div>
+                    <h3>Pengurangan</h3>
+                    <p>Belajar kurang-kurangan</p>
+                </div>
+                <div class="card" onclick="gameManager.selectTopic('x')">
+                    <div class="card-icon" style="background-color: #2ecc71;">×</div>
+                    <h3>Perkalian</h3>
+                    <p>Belajar kali-kalian</p>
+                </div>
+                <div class="card" onclick="gameManager.selectTopic(':')">
+                    <div class="card-icon" style="background-color: #3498db;">÷</div>
+                    <h3>Pembagian</h3>
+                    <p>Belajar bagi-bagian</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="gallery" class="section gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2>Koleksi Klasik</h2>
+        <!-- Difficulty Selection -->
+        <section id="diff-select" class="screen hidden">
+            <div class="header">
+                <button class="btn-back" onclick="screenManager.show('topic-select')">⬅ Kembali</button>
+                <h2>Pilih Tingkat Kesulitan</h2>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-card">
-                    <img src="assets/vespa_gallery_red_1766029427975.png" alt="Red Vespa Side Profile">
-                    <div class="overlay">
-                        <h3>Vespa 150</h3>
-                        <p>The Red bold spirit</p>
-                    </div>
+            <div class="card-container">
+                <div class="card" onclick="gameManager.startGame('easy')">
+                    <div class="card-icon" style="background-color: #26de81;">🐣</div>
+                    <h3>Mudah</h3>
+                    <p>Angka 1 - 10</p>
                 </div>
-                <div class="gallery-card">
-                    <img src="assets/vespa_gallery_blue_1766029446145.png" alt="Blue Vespa Front View">
-                    <div class="overlay">
-                        <h3>Vespa VBB</h3>
-                        <p>Baby Blue nostalgia</p>
-                    </div>
+                <div class="card" onclick="gameManager.startGame('medium')">
+                    <div class="card-icon" style="background-color: #f7b731;">🐓</div>
+                    <h3>Sedang</h3>
+                    <p>Angka 10 - 50</p>
                 </div>
-                <!-- Placeholder for structure, using same image for demo balance if needed, or CSS effect -->
-                <div class="gallery-card text-card">
-                    <h3>Keindahan Detail</h3>
-                    <p>Setiap kurva menceritakan sebuah kisah.</p>
-                    <a href="#" class="btn-outline">Lihat Semua Model</a>
+                <div class="card" onclick="gameManager.startGame('hard')">
+                    <div class="card-icon" style="background-color: #eb3b5a;">🦅</div>
+                    <h3>Sulit</h3>
+                    <p>Angka 50 - 100</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contact">
-        <div class="container footer-content">
-            <div class="footer-col">
-                <h3>Vespa Classic</h3>
-                <p>Menghidupkan kembali kenangan indah dijalanan.</p>
+        <!-- Gameplay Screen -->
+        <section id="gameplay" class="screen hidden">
+            <div class="game-header">
+                <button class="btn-back" onclick="gameManager.exit()">❌ Keluar</button>
+                <div class="score-board">Skor: <span id="score">0</span></div>
             </div>
-            <div class="footer-col">
-                <h3>Tautan</h3>
-                <a href="#">Tentang Kami</a>
-                <a href="#">Restorasi</a>
-                <a href="#">Klub</a>
+
+            <!-- Game Visuals Area -->
+            <div id="visual-stage" class="stage">
+                <!-- Dynamic content injected by JS -->
             </div>
-            <div class="footer-col">
-                <h3>Ikuti Kami</h3>
-                <div class="socials">
-                    <span>IG</span>
-                    <span>FB</span>
-                    <span>TW</span>
+
+            <!-- Math Problem Area -->
+            <div class="math-controls">
+                <div class="problem-box">
+                    <span id="q-num1">?</span>
+                    <span id="q-op">+</span>
+                    <span id="q-num2">?</span>
+                    <span>=</span>
+                    <span id="q-ans">?</span>
+                </div>
+                <div class="options-grid" id="options-container">
+                    <!-- Buttons injected by JS -->
                 </div>
             </div>
-        </div>
-        <div class="copyright">
-            &copy; 2024 Vespa Classic Fan Page. All rights reserved.
-        </div>
-    </footer>
+        </section>
+
+        <!-- Result Screen -->
+        <section id="result" class="screen hidden">
+            <div class="content">
+                <h2 id="result-title">Hebat!</h2>
+                <p>Skor Akhir Kamu:</p>
+                <div class="final-score" id="final-score">100</div>
+                <button class="btn-primary" onclick="screenManager.show('game-select')">Main Lagi</button>
+            </div>
+        </section>
+    </div>
 
     <script src="script.js"></script>
 </body>
