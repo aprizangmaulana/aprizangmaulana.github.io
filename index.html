@@ -1,32 +1,124 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
-    <title>Website Sederhana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vespa Classic - Timeless Elegance</title>
+    <meta name="description"
+        content="Discover the timeless elegance of classic Vespas. A tribute to Italian design and engineering.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-    <header>
-        <h1>Website Saya</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Tentang</a>
-            <a href="#">Kontak</a>
-        </nav>
+<body>
+    <nav class="navbar">
+        <div class="logo">Vespa Classic</div>
+        <div class="nav-links">
+            <a href="#hero">Beranda</a>
+            <a href="#history">Sejarah</a>
+            <a href="#gallery">Galeri</a>
+            <a href="#contact">Kontak</a>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in-up">The Italian Icon</h1>
+            <p class="fade-in-up delay-1">Simbol kebebasan dan gaya yang tak lekang oleh waktu.</p>
+            <a href="#history" class="btn fade-in-up delay-2">Jelajahi Sejarah</a>
+        </div>
+        <div class="hero-image-container fade-in">
+            <img src="assets/vespa_hero_classic_1766029407655.png" alt="Vintage Vespa in Rome" class="hero-img">
+        </div>
     </header>
 
-    <main>
-        <h2>Selamat Datang</h2>
-        <p>Ini adalah contoh website sederhana menggunakan HTML, CSS, dan JavaScript.</p>
+    <section id="history" class="section history">
+        <div class="container">
+            <div class="section-header">
+                <h2>Warisan Sejarah</h2>
+                <p>Lebih dari sekadar skuter, Vespa adalah gaya hidup.</p>
+            </div>
+            <div class="history-grid">
+                <div class="history-item slide-in-left">
+                    <h3>1946</h3>
+                    <p>Lahirnya legenda. Vespa pertama diproduksi di Pontedera, Italia, mengubah cara dunia bergerak
+                        selamanya.</p>
+                </div>
+                <div class="history-item slide-in-up">
+                    <h3>Desain</h3>
+                    <p>Bodi baja monocoque yang revolusioner menjadikannya ikon desain industri yang diakui secara
+                        global.</p>
+                </div>
+                <div class="history-item slide-in-right">
+                    <h3>Budaya</h3>
+                    <p>Dari film "Roman Holiday" hingga jalanan modern, Vespa selalu menjadi simbol jiwa muda dan
+                        romansa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <button onclick="tampilPesan()">Klik Saya</button>
-    </main>
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Koleksi Klasik</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="assets/vespa_gallery_red_1766029427975.png" alt="Red Vespa Side Profile">
+                    <div class="overlay">
+                        <h3>Vespa 150</h3>
+                        <p>The Red bold spirit</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="assets/vespa_gallery_blue_1766029446145.png" alt="Blue Vespa Front View">
+                    <div class="overlay">
+                        <h3>Vespa VBB</h3>
+                        <p>Baby Blue nostalgia</p>
+                    </div>
+                </div>
+                <!-- Placeholder for structure, using same image for demo balance if needed, or CSS effect -->
+                <div class="gallery-card text-card">
+                    <h3>Keindahan Detail</h3>
+                    <p>Setiap kurva menceritakan sebuah kisah.</p>
+                    <a href="#" class="btn-outline">Lihat Semua Model</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>© 2025 - Website Sederhana</p>
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Vespa Classic</h3>
+                <p>Menghidupkan kembali kenangan indah dijalanan.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Tautan</h3>
+                <a href="#">Tentang Kami</a>
+                <a href="#">Restorasi</a>
+                <a href="#">Klub</a>
+            </div>
+            <div class="footer-col">
+                <h3>Ikuti Kami</h3>
+                <div class="socials">
+                    <span>IG</span>
+                    <span>FB</span>
+                    <span>TW</span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Vespa Classic Fan Page. All rights reserved.
+        </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
