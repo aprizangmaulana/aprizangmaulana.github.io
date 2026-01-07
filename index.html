@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ijank Fruit Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="nature-scene" class="nature-scene">
+        <div class="sky-gradient"></div>
+        <div class="sun"></div>
+        <div class="clouds-container">
+            <div class="cloud c1">☁️</div>
+            <div class="cloud c2">☁️</div>
+            <div class="cloud c3">☁️</div>
+        </div>
+        <div class="birds-container">
+            <div class="bird b1">🦅</div>
+            <div class="bird b2">🕊️</div>
+        </div>
+
+        <div class="ground-layer">
+            <div class="grass-overlay"></div>
+            <div class="tree t1">
+                <span class="tree-trunk">🪵</span>
+                <span class="tree-top">🌳</span>
+                <span class="tree-fruit">🍎</span>
+            </div>
+            <div class="tree t2">
+                <span class="tree-trunk">🪵</span>
+                <span class="tree-top">🌳</span>
+                <span class="tree-fruit">🍊</span>
+            </div>
+            <div class="human-character" id="character">
+                🧑‍🌾
+            </div>
+            <div class="scattered-fruits">
+                <span>🍉</span><span>🍇</span><span>🍍</span>
+            </div>
+        </div>
+
+        <div class="ambient-layer" id="ambient-layer"></div>
+    </div>
+
+    <!-- UI Corners -->
+    <div class="ui-corner top-left">
+        <div class="info-badge">
+            <span class="badg-icon">🎓</span>
+            <span class="badge-text">Belajar Sambil Bermain</span>
+        </div>
+    </div>
+
+    <div class="ui-corner top-right">
+        <div class="info-badge high-score-badge">
+            <span class="badg-icon">🏆</span>
+            <span class="badge-text">High Score: <span id="high-score-display">0</span></span>
+        </div>
+    </div>
+
+    <!-- Hint Button (Initially Hidden, shown in Game) -->
+    <button id="hint-btn" class="hint-btn hidden" onclick="showHint()">💡 Petunjuk</button>
+
+    <div class="container">
+        <div class="glass-panel">
+            <!-- Start View -->
+            <div id="start" class="view start-view active">
+                <div class="hero-text">
+                    <div class="logo-large">Ijank<span> Fruit Quiz</span></div>
+                    <p>Belajar mengenal buah dengan cara yang seru!</p>
+                    <button class="cta-button pulse" onclick="enterGame()">Start Game 🚀</button>
+                    <!-- Level Select inserted here by JS -->
+                </div>
+            </div>
+
+            <!-- Level Select View -->
+            <div id="level-select" class="view level-select-view" style="display: none;">
+                <h2>Pilih Level Kesulitan</h2>
+                <div class="level-grid" id="level-grid">
+                    <!-- Levels injected by JS -->
+                </div>
+                <button class="back-btn" onclick="showStartScreen()">Kembali</button>
+            </div>
+
+            <!-- Game View -->
+            <div id="game" class="view game-view" style="display: none;">
+                <div class="game-header">
+                    <button class="icon-btn-small" onclick="exitToLevelSelect()">🏠</button>
+                    <!-- <div class="logo-small">Ijank<span>Quiz</span></div> -->
+                    <div class="level-info">Level <span id="current-level-disp">1</span></div>
+                    <div class="score-board">Skor: <span id="score">0</span></div>
+                </div>
+
+                <div id="game-area" class="game-area">
+                    <div class="question-container">
+                        <div class="question-tracker">Soal <span id="q-current">1</span> / <span id="q-total">10</span>
+                        </div>
+                        <p class="clue-label">Tebak Buah Apa Aku?</p>
+                        <h2 id="question-text">Loading...</h2>
+                    </div>
+
+                    <div class="options-grid" id="options-container">
+                        <!-- Options injected by JS -->
+                    </div>
+
+                </div>
+
+                <div id="game-over" class="game-over" style="display: none;">
+                    <h2>Permainan Selesai!</h2>
+                    <p>Skor Akhir Kamu: <span id="final-score">0</span></p>
+                    <p class="high-score-text">High Score: <span id="final-high-score">0</span></p>
+
+                    <div class="game-over-controls">
+                        <button class="icon-btn-small" onclick="exitToLevelSelect()"
+                            style="background: var(--text-highlight); color: white;">🏠</button>
+                        <button class="cta-button" onclick="exitToLevelSelect()">Main Lagi 🔄</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback View -->
+            <div id="feedback-view" class="view feedback-view" style="display: none;">
+                <div class="feedback-content">
+                    <div id="feedback-icon" class="large-emoji">🎉</div>
+                    <h2 id="feedback-title">Benar Sekali!</h2>
+                    <p id="feedback-desc">Hebat, itu adalah Apel!</p>
+                    <button class="cta-button pulse" onclick="nextQuestion()">Lanjut &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bgm" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sfx-click">
+        <!-- We will try to rely on synthesized beep if file missing, but markup is here -->
+        <source src="assets/click.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control Removed -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
